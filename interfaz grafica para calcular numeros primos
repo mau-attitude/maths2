@@ -1,0 +1,39 @@
+from tkinter import *
+
+
+def calcular_numero_primo():
+
+    numero_valor = numero.get()
+    #divisor_valor = divisor.get()
+    divisor_valor = 2
+    while numero_valor > divisor_valor:
+        if numero_valor % divisor_valor == 0:
+            r.set("No es numero primo")
+            break
+        elif numero_valor % divisor_valor != 0:
+            divisor_valor = divisor_valor + 1
+
+    if numero_valor == divisor_valor:
+        r.set("Si es numero primo")
+
+
+root = Tk()
+root.config(bd=15)
+
+numero= IntVar()
+#divisor= IntVar()
+r = IntVar()
+
+
+Label(root, text="Numero").pack()
+Entry(root, justify="center", textvariable=numero).pack() #Primer Numero
+#Label(root, text="Divisor").pack()
+#Entry(root, justify="center", textvariable=divisor).pack() #Segundo Numero
+Label(root, text="  ").pack()
+Button(root, text="Calcular numero primo", command=calcular_numero_primo).pack()
+Label(root, text="\nResultado").pack()
+Entry(root, justify="center", textvariable=r, state="disable").pack() #Resultado
+
+
+# Finalente el bulce de la aplicacion
+root.mainloop()
